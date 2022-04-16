@@ -128,33 +128,15 @@
 			
 			주민등록번호 : <br>
 			<input type="text" maxlength="6" size="6" name="scret_n1"> -
-			<input type="text" maxlength="7" size="7" name="scret_n2"><br><br>
+			<input type="password" maxlength="7" size="7" name="scret_n2"><br><br>
 			
-			혈액형 :
-			<select name="blood" style="width:60px;height:20.5px">
-				<option value="blood"> 혈액형</option>
-				<option value="A"> A형 </option>
-				<option value="B"> B형 </option>
-				<option value="O"> O형 </option>
-				<option value="AB"> AB형 </option>
-				<option value="RH-"> RH- </option>
-			</select>
-			<br><br> 
 				
 			&nbsp;주&nbsp;&nbsp;&nbsp;&nbsp;소&nbsp; :  
 			<input type="text" size="30" name="address1"><br>
 			상세 주소 :
 			<input type="text" size="30" name="address2"><br>
 			
-			취미 : 
-			<input type="checkbox" name="hobby" value="운동">운동
-			<input type="checkbox" name="hobby" value="독서">독서
-			<input type="checkbox" name="hobby" value="여행">여행
-			<input type="checkbox" name="hobby" value="음악감상">음악감상<br><br>
-			
-			본인 소개 : <br>
-			<textarea name="Introduction" cols="50" rows="3">
-			</textarea>
+
 			<hr>
 			
 			<div align="center">
