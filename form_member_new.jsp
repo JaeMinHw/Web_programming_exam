@@ -17,21 +17,14 @@
 			var regExpPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&].{4,16}$/;
 			
 			
-			if(f.p_id.value.length < 4 || f.p_id.value.length > 16)
+			if(f.p_id.value.length != 8)
 			{
-				alert("아이디는 4~16자 이내로 입력해야 합니다.");
+				alert("사용자 번호는 8자입니다.");
 				f.p_id.focus();
 				return false;
 			}
 			
-			
-			else if(!regExpName.test(check_id))
-			{
-				alert("아이디은 영문 또는 숫자로만 입력해야합니다");
-				f.p_id.focus();
-				return false;
-			}
-			
+		
 			
 			
 			
@@ -58,26 +51,13 @@
 				return false;
 			}
 
-			else if(f.phone1.value.length <3 || f.phone2.value.length < 4 || f.phone3.value.length < 4)
+			else if(f.phone.value.length !=13 )
 			{
-				alert("전화번호를 입력해주세요");
+				alert("전화번호를 000-0000-0000 형식으로 입력해주세요");
 				f.phone1.focus();
 				return false;
 			}
-			
-			else if(f.p_phone1.value.length <3 || f.p_phone2.value.length < 4 || f.p_phone3.value.length < 4)
-			{
-				alert("보호자 연락처를 입력해주세요");
-				f.p_phone1.focus();
-				return false;
-			}
-			
-			else if(f.scret_n1.value.length<6 || f.scret_n2.value.length <7)
-			{
-				alert("주민등록번호를 입력해주세요");
-				f.scret_n1.focus();
-				return false;
-			}
+		
 			
 			else return true;
 
@@ -91,8 +71,13 @@
 	<fieldset style="width:330px">
 			<legend> 개인 정보 입력 </legend><p>
 			
+			구분 :
+			<input type = "radio" name="who" value ="USER">독거인
+			<input type = "radio" name="who" value ="MASTER">마스터 보호자
+			<input type = "radio" name="who" value="PROTECTER">보호자<br><br>
+			
 			아이디 : <br>
-			<input type="text" name="p_id" size="16"><br><br>
+			<input type="text" maxlength = "8" name="p_id" size="16"><br><br>
 			
 			비밀번호 : <br>
 			<input type="password" name="p_pw" size="16"><br><br>
@@ -101,42 +86,8 @@
 			<input type="text" name="p_name" size="16"><br><br>
 			
 			연락처 : <br>
-			<select name="choice" style="width:60px;height:20.5px">
-				<option value="choice"> 선택 </option>
-				<option value="KT"> KT </option>
-				<option value="SKT"> SKT </option>
-				<option value="LGU+"> LGU+ </option>
-			</select>
-			<input type="text" maxlength="3" size="3" name="phone1"> -
-			<input type="text" maxlength="4" size="4" name="phone2"> -
-			<input type="text" maxlength="4" size="4" name="phone3"><br><br>
-			
-			보호자 연락처 : <br>
-			<select name="p_choice" style="width:60px;height:20.5px">
-				<option value="p_choice"> 선택</option>
-				<option value="KT"> KT </option>
-				<option value="SKT"> SKT </option>
-				<option value="LGU+"> LGU+ </option>
-			</select>
-			<input type="text" maxlength="3" size="3" name="p_phone1"> -
-			<input type="text" maxlength="4" size="4" name="p_phone2"> -
-			<input type="text" maxlength="4" size="4" name="p_phone3"><br><br>
-			
-			성별 : 
-			<input type="radio" name="gender" value="남성">남
-			<input type="radio" name="gender" value="여성">여<br><br>
-			
-			주민등록번호 : <br>
-			<input type="text" maxlength="6" size="6" name="scret_n1"> -
-			<input type="password" maxlength="7" size="7" name="scret_n2"><br><br>
-			
-				
-			&nbsp;주&nbsp;&nbsp;&nbsp;&nbsp;소&nbsp; :  
-			<input type="text" size="30" name="address1"><br>
-			상세 주소 :
-			<input type="text" size="30" name="address2"><br>
-			
-
+			<input type="text" maxlength="13" size="13" name="phone"><br><br>
+		
 			<hr>
 			
 			<div align="center">
