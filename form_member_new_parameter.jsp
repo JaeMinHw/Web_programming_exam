@@ -13,31 +13,16 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 	
-		String u_id = request.getParameter("p_id");
+		int u_id = Integer.parseInt(request.getParameter("p_id"));
 		String pw = request.getParameter("p_pw");
 		String u_name = request.getParameter("p_name");
 		
-		String choice = request.getParameter("choice");
-		String ph01 = request.getParameter("phone1");
-		String ph02 = request.getParameter("phone2");
-		String ph03 = request.getParameter("phone3");
+		String ph01 = request.getParameter("phone");
 		
-		String p_choice = request.getParameter("p_choice");
-		String p_ph01 = request.getParameter("p_phone1");
-		String p_ph02 = request.getParameter("p_phone2");
-		String p_ph03 = request.getParameter("p_phone3");
-		
-		String sex = request.getParameter("gender");
-		String sec_n1 = request.getParameter("scret_n1");
-		String sec_n2 = request.getParameter("scret_n2");
-		String addre1 = request.getParameter("address1");
-		String addre2 = request.getParameter("address2");
-		
-		String sql = "insert into members(id,passwd,name) values";
-		sql += "(`" + u_id + "','" + pw + "','" +u_name + "`)";
+		String who1 = request.getParameter("who");
 		
 		String driverName="com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/mydb";
+		String url = "jdbc:mysql://localhost:3306/odbo";
 		String username= "root";
 		String password="1234";
 		Connection conn = null;
@@ -46,24 +31,53 @@
 		conn=DriverManager.getConnection(url,username,password);
 		Statement sm = conn.createStatement();
 		
-		int count = sm.executeUpdate(sql);
-		if(count ==1 ) {
-			out.println("회원가입 성공");
-		} else{
-			out.println("회원가입 실패");
+		
+		if(who1.equals("USER")) {
+			String sql = "INSERT INTO user(userNum,userName,userPassword,userPhone) VALUES('"+u_id+"','"+u_name+"','"+pw+"','"+ph01+"')";
+			int count = sm.executeUpdate(sql);
+			if(count ==1 ) {
+				out.println("회원가입 성공");
+			} else{
+				out.println("회원가입 실패");
+			}
 		}
+		else if(who1.equals("MASTER")) {
+			String sql = "INSERT INTO master(userNum,masName,masPhone,masPassword,) VALUES('"+u_id+"','"+u_name+"','"+ph01+"','"+pw+"')";
+			int count = sm.executeUpdate(sql);
+			if(count ==1 ) {
+				out.println("회원가입 성공");
+			} else{
+				out.println("회원가입 실패");
+			}
+		}
+		else if(who1.equals("PROTECTER")){
+			String sql = "INSERT INTO protecter(userNum,proName,proPhone,userPassword) VALUES('"+u_id+"','"+u_name+"','"+ph01+"','"+pw+"')";
+			int count = sm.executeUpdate(sql);
+			if(count ==1 ) {
+				out.println("회원가입 성공");
+			} else{
+				out.println("회원가입 실패");
+			}
+		}
+		else {
+			return;
+		}
+
+
+		
+		
+		
+		
+		
 		sm.close();
 		conn.close();
 	%>
 		<p> 아이디 : <%= u_id %>
 		<p> 비밀번호 : <%=pw %>
 		<p> 이름 : <%= u_name %>
-		<p> 연락처 : <%= choice %> <%= ph01 %> <%= ph02 %> <%=ph03 %>	
-		<p> 보호자 연학처 : <%= p_choice %>  <%= p_ph01 %> - <%= p_ph02 %> - <%= p_ph03 %>
-		<p> 성별 : <%= sex %>
-		<p> 주민등록번호 : <%= sec_n1 %> - <%=sec_n2 %>
-		<p> 주소 : <%= addre1 %>
-		<p> 상세 주소 : <%= addre2 %>
+		<p> 연락처 :  <%= ph01 %>
+
+
 
 </body>
 </html>
