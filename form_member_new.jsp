@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "che.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="UTF-8">
 	<title>회원 가입</title>
 	<script type="text/javascript">
@@ -64,38 +66,41 @@
 		}
 	</script>
 </head>
-<body>
-	Home > Join the Membership
-	<hr>
-	<form action="form_member_new_parameter.jsp" name="person_info" method="post" onsubmit="return checkFun()">
-	<fieldset style="width:330px">
-			<legend> 개인 정보 입력 </legend><p>
+	<body style="text-align:center;">
+	
+		<legend> 회원가입 </legend>
+		<hr>
+		<form action="form_member_new_parameter.jsp" name="person_info" method="post" onsubmit="return checkFun()">
+		<fieldset >
+				<legend> 개인 정보 입력 </legend><p>
+				
+				구분 :
+				<input type = "radio" name="who" value ="USER">독거인
+				<input type = "radio" name="who" value ="MASTER">마스터 보호자
+				<input type = "radio" name="who" value="PROTECTER">보호자<br><br>
+				
+				&nbsp;아이디 &nbsp;&nbsp;:&nbsp;
+				<input type="text" maxlength = "8" name="p_id" size="16" ><br><br>
+				
+				비밀번호 :&nbsp;
+				<input type="password" name="p_p
+				w" size="16"><br><br>
+				
+				&nbsp;&nbsp;이&nbsp;름 &nbsp;&nbsp;:&nbsp;
+				<input type="text" name="p_name" size="16"><br><br>
+				
+				&nbsp;연락처 &nbsp;:&nbsp;
+				<input type="text" placeholder="010-1111-1111" maxlength="13" size="16" name="phone"><br><br>
 			
-			구분 :
-			<input type = "radio" name="who" value ="USER">독거인
-			<input type = "radio" name="who" value ="MASTER">마스터 보호자
-			<input type = "radio" name="who" value="PROTECTER">보호자<br><br>
-			
-			아이디 : <br>
-			<input type="text" maxlength = "8" name="p_id" size="16"><br><br>
-			
-			비밀번호 : <br>
-			<input type="password" name="p_pw" size="16"><br><br>
-			
-			이름 : <br>
-			<input type="text" name="p_name" size="16"><br><br>
-			
-			연락처 : <br>
-			<input type="text" maxlength="13" size="13" name="phone"><br><br>
-		
-			<hr>
-			
-			<div align="center">
-
-				<input type="submit" value=" 가입하기 "> &nbsp;&nbsp;
-				<input type="reset" value=" 다시작성 ">
-			</div>
-		</fieldset>
-	</form>
-</body>
+				<hr>
+				
+				<div align="center">
+					<div>
+					<input type="submit" class="btn btn-secondary" value="가입" >
+					<input type="reset" class="btn btn-secondary" value="다시 작성" > 
+				</div>
+				</div>
+			</fieldset>
+		</form>
+	</body>
 </html>
