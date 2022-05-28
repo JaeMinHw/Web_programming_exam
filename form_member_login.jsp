@@ -47,9 +47,12 @@
 					ResultSet quer = pstmt.executeQuery();
 					if(quer.next()) {
 						if(quer.getString("userPassword").equals(log_pw)){
+							session.setAttribute("memberId", log_id);
+							session.setAttribute("memberPw", log_pw);
 							%>
 							<script type="text/javascript">
 							alert("로그인 성공");
+							location.href=("homemain.jsp");
 							</script>
 							<%
 							// 다음 화면으로 넘어가기
@@ -61,8 +64,10 @@
 							%>
 							<script type="text/javascript">
 							alert("비밀번호가 올바르지 않습니다.");
+							location.href=("form_member_home.jsp");
 							</script>
 							<%
+							
 							
 						}
 					}
@@ -70,9 +75,9 @@
 						%>
 						<script type="text/javascript">
 						alert("로그인 정보를 확인해주세요");
+						location.href=("form_member_home.jsp");
 						</script>
 						<%
-						
 					}
 				}
 				else if(who_num ==1) {
@@ -88,11 +93,13 @@
 							</script>
 							<%
 							// 다음 화면으로 넘어가기
+							response.sendRedirect("homemain.jsp");
 						}
 						else 
 							%>
 							<script type="text/javascript">
 							alert("비밀번호가 올바르지 않습니다.");
+							location.href=("form_member_home.jsp");
 							</script>
 						<%
 					}
@@ -100,8 +107,10 @@
 						%>
 						<script type="text/javascript">
 						alert("로그인 정보를 확인해주세요");
+						location.href=("form_member_home.jsp");
 						</script>
 						<%
+						
 					}
 				}
 				else if(who_num ==2) {
@@ -114,22 +123,27 @@
 							%>
 							<script type="text/javascript">
 							alert("로그인 성공");
+							location.href=("homemain.jsp");
 							</script>
 							<%
 							// 다음 화면으로 넘어가기
+							
 						}
 						else {
 						%>
 							<script type="text/javascript">
 							alert("비밀번호가 올바르지 않습니다.");
+							location.href=("form_member_home.jsp");
 							</script>
 						<%
+						
 						}
 					}
 					else {
 						%>
 						<script type="text/javascript">
 						alert("로그인 정보를 확인해주세요");
+						location.href=("form_member_home.jsp");
 						</script>
 						<%
 					}
@@ -138,9 +152,9 @@
 				
 			} catch(ClassNotFoundException e) {
 				out.println(">> 연결 실패 : 드라이버 복사 필요" );
-			} catch(SQLException e) {
+			}catch(SQLException e) {
 				out.println(">> 연결 실패 : SQL 명령문 확인 필요");
-			} finally{ // 예외가 발생하든 안하든 무조건 실행되는 부분
+			}  finally{ // 예외가 발생하든 안하든 무조건 실행되는 부분
 				//5.닫기
 				try{
 					if(conn != null) 
