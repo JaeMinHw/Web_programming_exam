@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "che.jsp" %>
+<%@ include file = "update_css.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +17,7 @@
 			
 			var check_pw = f.p_pw.value;
 			var regExpPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&].{4,16}$/;
-			
-			
-			if(f.p_id.value.length != 8)
-			{
-				alert("사용자 번호는 8자입니다.");
-				f.p_id.focus();
-				return false;
-			}
-			
-		
-			
-			
-			
+					
 			else if(f.p_pw.value.length < 6)
 			{
 				alert("비밀번호는 6자 이상으로 입력해야 합니다.");
@@ -59,32 +47,34 @@
 				f.phone1.focus();
 				return false;
 			}
-		
 			
-			else return true;
 
 		}
 	</script>
 </head>
 	<body style="text-align:center;">
 	
+	<br><br><br>
 		<legend> 회원가입 </legend>
+		
 		<hr>
 		<form action="form_member_new_parameter.jsp" name="person_info" method="post" onsubmit="return checkFun()">
 		<fieldset >
+				
 				<legend> 개인 정보 입력 </legend><p>
+				<br><br>
 				
 				구분 :
-				<input type = "radio" name="who" value ="USER">독거인
-				<input type = "radio" name="who" value ="MASTER">마스터 보호자
-				<input type = "radio" name="who" value="PROTECTER">보호자<br><br>
+				<input type = "radio" name="who" value ="USER" >독거인
+				<input type = "radio" name="who" value ="MASTER" >마스터 보호자
+				<input type = "radio" name="who" value="PROTECTER" >보호자<br><br>
+				
 				
 				&nbsp;아이디 &nbsp;&nbsp;:&nbsp;
-				<input type="text" maxlength = "8" name="p_id" size="16" ><br><br>
+				<input type="text" placeholder="보호자만 작성" maxlength = "8" name="p_id" size="16" ><br><br>
 				
 				비밀번호 :&nbsp;
-				<input type="password" name="p_p
-				w" size="16"><br><br>
+				<input type="password" name="p_pw" size="16"><br><br>
 				
 				&nbsp;&nbsp;이&nbsp;름 &nbsp;&nbsp;:&nbsp;
 				<input type="text" name="p_name" size="16"><br><br>
