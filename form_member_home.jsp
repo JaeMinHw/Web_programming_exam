@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "che.jsp" %>
+<%@ include file = "update_css.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +15,14 @@
 			var check_id = f.p_id.value;
 			var check_pw = f.p_pw.value;
 			
-			if(f.p_id.value.length != 8 )
+			if(f.p_id.value.length == null )
 			{
 				alert("아이디를 입력해주세요");
 				f.p_id.focus();
 				return false;
 			}
 			
-			if(f.p_pw.value.length < 6)
+			if(f.p_pw.value.length == null)
 			{
 				alert("비밀번호를 입력해주세요");
 				f.p_pw.focus();
@@ -38,7 +38,7 @@
 
 	<form action='form_member_login.jsp' name="person_info" method="get" onsubmit="return check_Fun()">
 		
-		<div class = "flex-container">
+		<div>
 			<ul>
 			<legend> 독거인 관리 시스템 </legend>
 				
@@ -58,6 +58,9 @@
 									
 									<label class="btn btn-primary">
 										<input type="radio" name="who" value="PROTECTER">보호자
+									</label>
+									<label class="btn btn-primary">
+										<input type="radio" name="who" value="MANAGER">관리자
 									</label>
 								</div>
 						
