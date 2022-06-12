@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ include file = "dbConn.jsp" %>
+<%@ include file = "update_css.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,8 @@
 		String who1 = request.getParameter("who");
 		
 		
+
+	
 		Statement sm = conn.createStatement();
 		
 		
@@ -65,7 +68,8 @@
 		<p> 이름 : <%= u_name %>
 		<p> 연락처 :  <%= ph01 %>
 
-
+		<p><p>
+		<button type="button" class="btn btn-secondary" onclick="location.href='form_member_home.jsp'">메인으로</button>
 
 </body>
 </html>
